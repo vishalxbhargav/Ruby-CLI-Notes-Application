@@ -1,4 +1,5 @@
 require_relative "../model/notes.rb"
+require_relative "../utils/generatePdf.rb"
 require 'json'
 
 class NotesService
@@ -121,6 +122,41 @@ class NotesService
             File.write('./data/users.json',JSON.dump(data)) 
             puts 
             p "Note deleted successfully!."  
+            puts
+        else
+            puts
+            p "Note not found wit id : #{note_id}"
+            puts
+        end
+    end
+    def export_notes(id)
+        puts
+        print "Enter note ID to export : "
+        note_id=gets.chomp.to_i
+
+        #get data
+        file = File.read("./data/users.json")
+        data = JSON.parse(file);
+        flag=false
+        data.each do |users|
+            if users["id"]==id
+                len=users["notes"].length
+                users["notes"].each do |note|
+                    if note["id"]==note_id
+                        flag=generate_pdf(note["title"],note["content"])
+                        break
+                    end
+                end 
+                break          
+            end
+        end
+        if flag
+            File.write('./data/users.json',JSON.dump(data)) 
+            puts 
+           
+            p "Note exportded to PDF successfully!"
+            p "The PDF has been saved in your "
+            p "Download folder."
             puts
         else
             puts

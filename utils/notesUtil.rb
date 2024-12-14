@@ -24,7 +24,7 @@ class NotesUtil
             when 4
                 notesService.delete_notes(id)
             when 5
-                puts "export specific notes to pdf"
+                notesService.export_notes(id)
             when 6
                 break;
             else 
