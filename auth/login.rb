@@ -1,4 +1,5 @@
 require_relative "..//service/userService.rb"
+require_relative "..//utils/notesUtil.rb"
 
 
 def login_user()
@@ -7,20 +8,13 @@ def login_user()
   print "Enter a username : "
   user.username=gets.chomp.to_s
   print "Enter a password : "
-  user.password=gets.chomp.to_i
-
+  user.password=gets.chomp.to_s
+  puts 
   result=userService.check_credentials(user)
-
+  puts
   if(result)
-    puts "Please choose an option:"
-    puts "1. Create Note"
-    puts "2. View Notes"
-    puts "3. Update Note"
-    puts "4. Delete Note"
-    puts "5. Export Specific Note to PDF"
-    puts "6. Exit"
-
-
+    notesUtil=NotesUtil.new();
+    notesUtil.notes_details(result)
   else
     puts "User not found"
   end

@@ -19,6 +19,7 @@ when 1
 when 2
   login_user()
 when 3
+  puts "Goodby!"
   return;
 else 
   puts "!Invalid Option, Please retry again"

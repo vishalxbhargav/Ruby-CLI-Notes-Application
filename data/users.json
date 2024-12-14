@@ -1,1 +1,1 @@
-[{"id":1,"username":"xyz","password":"123","notes":[]}]
+[{"id":1,"username":"xyz","password":"123","notes":[]},{"id":2,"username":"vscode","password":"123","notes":[{"id":1,"title":"dsa","content":" daily 2 problem on leetcode"},{"id":2,"title":"updated title","content":"updated contenet"}]},{"id":3,"username":"vscode","password":"123","notes":[]}]

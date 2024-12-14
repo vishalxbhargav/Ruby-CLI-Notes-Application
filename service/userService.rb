@@ -20,8 +20,9 @@ class UserServiceImp
       #create new user
       hash_user={id:data.size+1,username:user.username,password:user.password,notes:[]}
       data<<hash_user
-      p "Registration successful. Please log in."
+      #update json data
       File.write('./data/users.json',JSON.dump(data)) 
+      p "Registration successful. Please log in."
     rescue SystemCallError =>e
       puts "Error : #{e.message}"
     end
@@ -39,9 +40,11 @@ class UserServiceImp
       
       #check user credential
       data.each do |users|
-        if users["username"]==user.username && users["password"]
+        p users["password"]
+        p user.password
+        if users["username"]==user.username && users["password"]==user.password
           p "Login successful. Welcome, #{user.username}!"
-          return true;
+          return users["id"];
         end
       end
       
