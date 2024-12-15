@@ -9,13 +9,13 @@ Here i have create Notes Application in CLI version
 
 
 ## Screenshot
-[(assets/1.png)]
-[(assets/2.png)]
-[(assets/3.png)]
-[(assets/4.png)]
-[(assets/5.png)]
-[(assets/6.png)]
-[(assets/7.png)]
+[Preview](assets/1.png)
+[Preview](assets/2.png)
+[Preview](assets/3.png)
+[Preview](assets/4.png)
+[Preview](assets/5.png)
+[Preview](assets/6.png)
+[Preview](assets/7.png)
 
 
 ## List
