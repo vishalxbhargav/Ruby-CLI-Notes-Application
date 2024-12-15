@@ -164,4 +164,6 @@ class NotesService
             puts
         end
     end
+    def export_all_notes(id)
+    end
 end

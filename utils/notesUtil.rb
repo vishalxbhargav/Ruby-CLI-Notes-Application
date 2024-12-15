@@ -3,6 +3,7 @@ require_relative "../service/notesService.rb"
 class NotesUtil
     def notes_details(id)
         while true
+            puts 
             puts "Please choose an option:"
             puts "1. Create Note"
             puts "2. View Notes"

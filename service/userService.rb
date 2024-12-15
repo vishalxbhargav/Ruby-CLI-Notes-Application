@@ -16,7 +16,11 @@ class UserServiceImp
       #get old json data
       file = File.read("./data/users.json")
       data = JSON.parse(file);
-      
+      #check if username already present
+      if find_user_by_name(data,user.username)
+        puts 
+        raise "username already exist try different username !"
+      end
       #create new user
       hash_user={id:data.size+1,username:user.username,password:user.password,notes:[]}
       data<<hash_user
@@ -25,9 +29,18 @@ class UserServiceImp
       p "Registration successful. Please log in."
     rescue SystemCallError =>e
       puts "Error : #{e.message}"
+    rescue Exception =>e
+      puts e.message
     end
   end
-
+  def find_user_by_name(data,username)
+    data.each do |user|
+      if user["username"]==username
+        return true
+      end
+    end
+    return false
+  end
 
   def check_credentials(user)
     begin
@@ -40,8 +53,6 @@ class UserServiceImp
       
       #check user credential
       data.each do |users|
-        p users["password"]
-        p user.password
         if users["username"]==user.username && users["password"]==user.password
           p "Login successful. Welcome, #{user.username}!"
           return users["id"];
