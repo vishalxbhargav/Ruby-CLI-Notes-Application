@@ -1,5 +1,5 @@
 
-# System Design
+# Ruby CLI Notes Application
 
 Here i have create Notes Application in CLI version
 
